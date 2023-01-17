@@ -28,6 +28,8 @@ class StoreProjectRequest extends FormRequest
             //la mettiamo nullable perchè stiamo integrando e altrimenti romperebbe tutto quello fatto prima - max:250 sono i max mb consentiti
             'cover_image' => 'nullable|image|max:350',
             'description' => 'nullable|max:300',
+            
+            'type_id' => 'nullable|exists:types,id'
         ];
     }
 }

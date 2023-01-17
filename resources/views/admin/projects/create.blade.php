@@ -31,6 +31,7 @@
       {{$message}}
     </div>
     @enderror
+
     <!--CAMPO COVER_IMAGE-->
     <div class="mb-3">
       <label for="cover_image" class="form-label @error('cover_image') is-invalid @enderror">Cover Image</label>
@@ -45,16 +46,23 @@
     </div>
     @enderror
 
-    <!-- RIPRENDERE ESERCIZIO DA QUI -->
+    <!--CAMPO SELECT TYPE-->
     <div class="mb-3">
       <label for="type_id" class="form-label">Types</label>
-      <select class="form-select form-select-lg" name="type_id" id="type_id">
+      <select class="form-select form-select-lg @error('type_id') is-invalid @enderror" name="type_id" id="type_id">
         <option selected>Select one</option>
-        <option value="">New Delhi</option>
-        <option value="">Istanbul</option>
-        <option value="">Jakarta</option>
+        @foreach ($types as $type)
+        <option value="{{$type->id}}">{{$type->name}}</option>
+        @endforeach
       </select>
     </div>
+
+    <!-- messaggio di errore direttamente sotto al campo cover select type -->
+    @error('type_id')
+    <div class="alert alert-danger" role="alert">
+      {{$message}}
+    </div>
+    @enderror
 
     <!--CAMPO DESCRIPTION-->
     <div class="mb-3">
