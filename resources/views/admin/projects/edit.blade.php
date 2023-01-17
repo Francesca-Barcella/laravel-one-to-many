@@ -38,7 +38,7 @@
     </div>
     @enderror
 
-        <!--CAMPO TITLE-->
+    <!--CAMPO TITLE-->
     <div class="mb-3">
       <label for="title" class="form-label">Name</label>
       <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Add New Project" aria-describedby="titleHelpId" value="{{old('title', $project->title)}}">
@@ -52,17 +52,16 @@
     </div>
     @enderror
 
-     <!--CAMPO SELECT TYPE-->
-     <div class="mb-3">
+    <!--CAMPO SELECT TYPE-->
+    <div class="mb-3">
       <label for="type_id" class="form-label">Types</label>
       <select class="form-select form-select-lg @error('type_id') is-invalid @enderror" name="type_id" id="type_id">
-        
-      <option value="">No type</option>
+
+        <option value="">No type</option>
 
         @foreach ($types as $type)
-        <option value="{{$type->id}}" 
-        {{ $type->id ==  old('type_id', $project->type->id) ? 'selected' : ''}}>{{$type->name}}
-      </option>
+        <option value="{{$type->id}}" {{ $type->id == old('type_id', $project->type?->id) ? 'selected' : ''}}>{{$type->name}}
+        </option>
         @endforeach
       </select>
     </div>
