@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Project extends Model
 {
@@ -16,5 +17,17 @@ class Project extends Model
     {
         $project_slug = Str::slug($title);
         return $project_slug;
+    }
+
+    /**
+     * Get the category that owns the Project
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function type(): BelongsTo
+    {
+
+        // one to one => one project to one category
+        return $this->belongsTo(Type::class);
     }
 }
