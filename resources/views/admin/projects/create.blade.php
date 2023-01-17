@@ -45,6 +45,16 @@
     </div>
     @enderror
 
+    <!-- RIPRENDERE ESERCIZIO DA QUI -->
+    <div class="mb-3">
+      <label for="type_id" class="form-label">Types</label>
+      <select class="form-select form-select-lg" name="type_id" id="type_id">
+        <option selected>Select one</option>
+        <option value="">New Delhi</option>
+        <option value="">Istanbul</option>
+        <option value="">Jakarta</option>
+      </select>
+    </div>
 
     <!--CAMPO DESCRIPTION-->
     <div class="mb-3">
